@@ -18,6 +18,7 @@ class MainModel extends ChangeNotifier {
   bool isLoading = false;
   User? currentUser;
   late DocumentSnapshot<Map<String,dynamic>> currentUserDoc;
+  late FirestoreUser firestoreUser;
   //以下がMainModelが起動した時の処理
   // ユーザーの動作を必要としないモデルの関数
   MainModel() {
@@ -30,6 +31,7 @@ class MainModel extends ChangeNotifier {
     currentUser = FirebaseAuth.instance.currentUser;
     // hcbXO8Rs4PPGua2vlPL92XTmpJj1
     currentUserDoc = await FirebaseFirestore.instance.collection(usersFieldKey).doc(currentUser!.uid).get();
+    firestoreUser = FirestoreUser.fromJson(currentUserDoc.data()!);
     // currentUserのuidの取得が可能になりました
     endLoading();
   }

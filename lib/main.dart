@@ -14,8 +14,9 @@ import 'firebase_options.dart';
 import 'package:english_app/constants/routes.dart' as routes;
 import 'package:english_app/constants/strings.dart';
 // components
-import 'package:english_app/details/rounded_button.dart';
-
+import 'package:english_app/views/main/home_screen.dart';
+import 'package:english_app/views/main/search_screen.dart';
+import 'package:english_app/views/main/profile_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -72,9 +73,9 @@ class MyHomePage extends ConsumerWidget {
           // childrenの個数はElementsの数
           children: [
             // 注意：ページじゃないのでScaffold
-            Container(child: Text(homeText),),
-            Container(child: Text(searchText),),
-            Container(child: Text(profileText),),
+            const HomeScreen(),
+            const SearchScreen(),
+            ProfileScreen(mainModel: mainModel,),
           ],
         ),
       bottomNavigationBar: SNSBottomNavigationBar(snsBottomNavigationBarModel: snsBottomNavigationBarModel),
