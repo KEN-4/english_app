@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:english_app/details/sns_bottom_navigation_bar.dart';
 import 'package:english_app/views/login_page.dart';
 // models
 import 'package:english_app/models/main_model.dart';
+import 'package:english_app/models/sns_bottom_navigation_bar_model.dart';
 // options
 import 'firebase_options.dart';
 // constants
@@ -54,28 +56,28 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     final MainModel mainModel = ref.watch(mainProvider);
+    final SNSBottomNavigationBarModel snsBottomNavigationBarModel = ref.watch(snsBottomNavigationBarProvider);
+ 
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
       body: mainModel.isLoading ?
-      const Center(
-        child: Text(loadingText),
-      ) : 
-      Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        const Center(
+          child: Text(loadingText),
+        ) : 
+        PageView(
+          controller: snsBottomNavigationBarModel.pageController,
+          onPageChanged: (index) => snsBottomNavigationBarModel.onPageChanged(index: index),
+          // childrenの個数はElementsの数
           children: [
-            Text("私の名前は${mainModel.currentUserDoc["userName"]}です"),
-            RoundedButton(
-              onPressed: () async => await mainModel.logout(context: context, mainModel: mainModel),
-              widthRate: 0.85, 
-              color: Colors.red,
-              text: logoutText
-            ),
+            // 注意：ページじゃないのでScaffold
+            Container(child: Text(homeText),),
+            Container(child: Text(searchText),),
+            Container(child: Text(profileText),),
           ],
-      ),
-      )
+        ),
+      bottomNavigationBar: SNSBottomNavigationBar(snsBottomNavigationBarModel: snsBottomNavigationBarModel),
     );
   }
 }
