@@ -11,11 +11,10 @@ import 'package:english_app/models/sns_bottom_navigation_bar_model.dart';
 // options
 import 'firebase_options.dart';
 // constants
-import 'package:english_app/constants/routes.dart' as routes;
+// import 'package:english_app/constants/routes.dart' as routes;
 import 'package:english_app/constants/strings.dart';
 // components
 import 'package:english_app/views/main/home_screen.dart';
-import 'package:english_app/views/main/search_screen.dart';
 import 'package:english_app/views/main/profile_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -74,7 +73,6 @@ class MyHomePage extends ConsumerWidget {
           children: [
             // 注意：ページじゃないのでScaffold
             const HomeScreen(),
-            const SearchScreen(),
             ProfileScreen(mainModel: mainModel,),
           ],
         ),

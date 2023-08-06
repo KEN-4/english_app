@@ -1,5 +1,5 @@
 // titles
-const String appTitle = "SNS";
+const String appTitle = "英語力診断";
 const String signupTitle = "新規登録";
 const String loginTitle = "ログイン";
 // texts
@@ -15,5 +15,4 @@ const String usersFieldKey = "users";
 const String userCreatedMsg = "ユーザーが作成できました";
 // bottom navigation bar
 const String homeText = "Home";
-const String searchText = "Search";
 const String profileText = "Profile";

@@ -9,10 +9,6 @@ final List<BottomNavigationBarItem> bottomNavigationBarElements = [
     label: homeText
   ),
   const BottomNavigationBarItem(
-    icon: Icon(Icons.search),
-    label: searchText
-  ),
-  const BottomNavigationBarItem(
     icon: Icon(Icons.person),
     label: profileText
   ),

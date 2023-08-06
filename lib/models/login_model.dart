@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // constants
 import 'package:english_app/constants/routes.dart' as routes;
-import 'package:english_app/models/main_model.dart';
+// import 'package:english_app/models/main_model.dart';
 final loginProvider = ChangeNotifierProvider(
   ((ref) => LoginModel()
 ));
