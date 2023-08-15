@@ -41,4 +41,9 @@ class SNSBottomNavigationBarModel extends ChangeNotifier {
     );
     notifyListeners();
   }
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
 }

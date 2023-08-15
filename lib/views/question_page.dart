@@ -12,8 +12,8 @@ import 'package:english_app/models/login_model.dart';
 import 'package:english_app/constants/strings.dart';
 import 'package:english_app/constants/routes.dart';
 
-class LoginPage extends ConsumerWidget {
-  const LoginPage({
+class QuestionPage extends ConsumerWidget {
+  const QuestionPage({
     Key? key,
   }) : super(key: key);
  

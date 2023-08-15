@@ -72,7 +72,7 @@ class MyHomePage extends ConsumerWidget {
           // childrenの個数はElementsの数
           children: [
             // 注意：ページじゃないのでScaffold
-            const HomeScreen(),
+            HomeScreen(mainModel: mainModel,),
             ProfileScreen(mainModel: mainModel,),
           ],
         ),
